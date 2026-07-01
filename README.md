@@ -16,7 +16,7 @@ node -v
 npm -v
 ```
 3. Change to client folder: `cd client`
-4. Install npm requirements: `npm install` and `npm install web3 lucide-react sonner ethers`
+4. Install npm requirements: `npm install` and `npm install web3 lucide-react sonner ethers hardhat`
 5. Make sure, the official MetaMask plugin is installed and set up in your browser
 
 ### Run Project on Hardhat Blockchain
