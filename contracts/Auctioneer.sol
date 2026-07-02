@@ -49,7 +49,7 @@ contract Auctioneer is ReentrancyGuard {
         uint256 _commitDuration,
         uint256 _revealDuration,
         string memory _description
-    ) external payable returns (uint256)  {
+    ) external nonReentrant payable returns (uint256)  {
 
         require(msg.value >= getAuctionFee(), "The provided Fee is lower than required."); 
         require(_commitDuration <= 2678400 && _revealDuration <= 2678400, "Commit duration and reveal duration must be lower than 31 days."); 
@@ -78,7 +78,7 @@ contract Auctioneer is ReentrancyGuard {
     /// The commmit will only be transmitted and stored as a hash at this state. 
     /// The bidden amount is public and has to be paid as deposit, 
     /// but the bid cannot be connected to the auction that it belongs to (until it is revealed).
-    function commitBid(bytes32 _commitment) external payable returns (uint256) {
+    function commitBid(bytes32 _commitment) external nonReentrant payable returns (uint256) {
         require(msg.value > 0, "Deposit required");
 
         uint256 bidID = ++globalBidCounter;
