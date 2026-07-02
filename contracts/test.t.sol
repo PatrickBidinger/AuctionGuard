@@ -141,7 +141,7 @@ contract AuctioneerTest is Test {
     finalize(user2, auctionID_1);
   }
 
-  function test_5_generateCommitment() public {
+  function test_5_generateCommitment() public view {
     assertEq(auctioneer.generateCommitment(1, user1, 5, nonce1), bytes32(uint256(0xa9767be44d410fac0cf5623cf3123cea3f39593117306abb27f1bd3077b3d86a)));
     assertEq(auctioneer.generateCommitment(34, user2, 1, "abc"), bytes32(uint256(0xd5da67f46495fac34e575aefa1384ceb0f991f9af405a4fc5bddbae7974686c0)));
     assertEq(auctioneer.generateCommitment(2, user3, 56000, nonce2), bytes32(uint256(0x25b34d2597a4699fafaa49212f1cf21fd655c9bcd7fc1979207fe73ff2585e58)));
